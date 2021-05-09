@@ -1,0 +1,56 @@
+NUME: Vasilache Raluca
+GRUPA: 314 CA
+
+
+					Tema #2
+
+
+
+	Proiectul contine : 
+   - un fisier README
+   - impementarile pentru functiile cerute
+	Descriere implementare solutii:
+
+1. TASK 1 - Algoritmul Iterative
+
+
+	Se citesc toate datele intr-o matrice care se parcurge
+apoi pentru completarea variabilelor:
+	- pe prima linie se afla N
+	- pe urmatoarele N linii: prima coloana contine numarul de ordine i , a doua coloana
+numarul de elemente nenule nr din matricea de adiacenta de pe linia i, urmatoarele nr
+numere reprezinta legaturile resursei i si completam matricea de adiacenta, ignorandu-se
+referintele unui articol catre el insusi.
+	- se citesc val1 si val2
+OBS: Functia a fost modificata astfel incat sa returneze si val1 si val2 ca sa nu mai
+fie nevoie de alta citire in functia PageRank.m
+	Se urmeaza pasii din algorimul Iterative prezentat:
+	- construim matricea M : daca j are link catre i atunci M(i,j) = 1/L(pag_j),
+altfel M(i,j) = 0
+	- initializam R_prev cu valoarea 1/N
+	- oprim functia while cand eroare este mai mica decat cea data 
+
+
+2. TASK 2 - Algoritmul Algebraic
+
+
+	Se repeta pasii pentru citirea datelor si pentru construirea matricei de adiacenta
+si a matricea M de la task-ul anterior
+	Se calculeaza R pe baza formulei: R = PR_Inv(eye(N)-d*M)*((1-d)/N)*one;
+	Functia PR_Inv - calculeaza inversa unei matrice aplicand algoritmul Gram-Schmidt
+pentru factorizare si apoi rezolvand n ( = lenght (A)) sisteme superior triunghiulare.
+
+
+2. TASK 3 - Gradul de apartenenta
+
+
+	Functia Apartenenta: calculeaza parametri a si b in functie de val1 si val2
+astfel incat functia y sa fie continua si returneaza valoarea functiei in punctul x;
+	Functia PageRank: 
+		- se construieste numele fisierului de iesire si se deschide impreuna cu cel
+de intrare
+		- se obtin PR1, PR2, val1 si val2 prin apelarea functiilor Iterative si Algebraic
+		- printeaza datele in fisierul de iesire
+		- se sorteaza vectorul PR2
+		- se printeaza N linii de forma i j F - cu semnificatia din enunt
+
